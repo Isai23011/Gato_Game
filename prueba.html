@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Tablero - Tres en Raya</title>
+    <style>
+        .tablero {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            margin: 20px auto;
+            width: max-content;
+        }
+
+        .celda {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+            cursor: pointer;
+            border: 2px solid #000;
+            background-color: #f0f0f0;
+        }
+
+        .info {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tablero" id="tablero">
+        <!-- Botones del tablero -->
+        <div class="celda" id="celda-0" onclick="marcar(0)"></div>
+        <div class="celda" id="celda-1" onclick="marcar(1)"></div>
+        <div class="celda" id="celda-2" onclick="marcar(2)"></div>
+        <div class="celda" id="celda-3" onclick="marcar(3)"></div>
+        <div class="celda" id="celda-4" onclick="marcar(4)"></div>
+        <div class="celda" id="celda-5" onclick="marcar(5)"></div>
+        <div class="celda" id="celda-6" onclick="marcar(6)"></div>
+        <div class="celda" id="celda-7" onclick="marcar(7)"></div>
+        <div class="celda" id="celda-8" onclick="marcar(8)"></div>
+    </div>
+
+    <div class="info">
+        <p id="turno">Turno del Jugador 1 (X)</p>
+        <button onclick="reiniciarJuego()">Reiniciar Juego</button>
+    </div>
+
+    <script>
+        let turno = 'X';
+        let tablero = ['', '', '', '', '', '', '', '', ''];
+        let juegoTerminado = false;
+
+        function marcar(indice) {
+            if (tablero[indice] === '' && !juegoTerminado) {
+                tablero[indice] = turno;
+                document.getElementById('celda-' + indice).innerText = turno;
+                verificarGanador();
+                turno = turno === 'X' ? 'O' : 'X';
+                document.getElementById('turno').innerText = `Turno del Jugador ${turno === 'X' ? 1 : 2} (${turno})`;
+            }
+        }
+
+        function verificarGanador() {
+            const combinacionesGanadoras = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+
+            for (let combinacion of combinacionesGanadoras) {
+                const [a, b, c] = combinacion;
+                if (tablero[a] && tablero[a] === tablero[b] && tablero[a] === tablero[c]) {
+                    document.getElementById('turno').innerText = `Jugador ${turno === 'X' ? 1 : 2} (${turno}) gana!`;
+                    juegoTerminado = true;
+                    return;
+                }
+            }
+
+            if (!tablero.includes('')) {
+                document.getElementById('turnoo').innerText = 'Empate!';
+                juegoTerminado = true;
+            }
+        }
+
+        function reiniciarJuego() {
+            tablero = ['', '', '', '', '', '', '', '', ''];
+            turno = 'X';
+            juegoTerminado = false;
+            document.getElementById('turno').innerText = 'Turno del Jugador 1 (X)';
+            for (let i = 0; i < 9; i++) {
+                document.getElementById('celda-' + i).innerText = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
