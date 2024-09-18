@@ -33,28 +33,43 @@
             <div class="estructura-text">
                 <h3>Clases Principales:</h3>
                 <ul>
-                    <li><strong>Jugador:</strong>Simbolo: Representa a un jugador individual en el juego y tiene un atributo símbolo que indica si es 'X' u 'O'.</li>
-                    <li><strong>Tablero:</strong> Tablero list: Gestiona el estado del tablero de juego. Tiene un atributo tablero que es una matriz para representar las casillas. Ofrece métodos para:
-                        <ul>
-                            <li>Verificar: Verifica si hay un ganador, un empate o que la casilla no este ocupada</li>
-                            <li>Realizar_un_movimiento: Realiza un movimiento si la posicion esta vacio</li>
-                            <li>Ganador: Define las combinaciones ganadoras </li>
-                            <li>empate: Verifica si todas las casillas estan ocupadas</li>
-                        </ul>
-                    </li>
-                    <li><strong>Juego:</strong> Es la clase principal que coordina el juego. </li>
+                    <li><strong>Clase Jugador:</strong></li>
                     <ul>
-                        <li>tablero: Crea la interfaz grafica de la clase tablero</li>
-                        <li>Jugador 1: Inicia su turno con el simbolo O</li>
-                        <li>Jugador 2: Inicia su turno con el simbolo X</li>
-                        <li>Turno: Controla el turno actual</li>
-                        <li>Boton: Genera los botones en el tablero</li>
-                        <li>init(): Metodo constructor</li>
-                        <li>Crear_botone(): Visualiza los simbolos</li>
-                        <li>Jugar(): Realiza los movimientos e imprime si hay un gandaor o un empate</li>
-                        <li>reiniciar_juego: Reinicia el juego despues de aver un ganador o un empate</li>
+                        <li>La clase Jugador representa a un jugador en el juego.</li>
+                        <li><strong>Metodos:</strong></li>
+                        <li>void init(String Simbolo):</li>
+                        <li>Inicializa un jugador con un símbolo específico (puede ser 'O' o 'X').</li>
                     </ul>
-                </ul>
+
+                    <li><strong>Clase Tablero:</strong></li>
+                    <ul>
+                        <li>La clase Tablero representa el tablero del juego, que es una cuadrícula de 3x3.</li>
+                        <li><strong>Metodos:</strong></li>
+                        <li>void init():</li>
+                        <li>Genera un tablero de 3 x 3.</li>
+                        <li>Verificar(int fila, int columna)</li>
+                        <li>Verifica si una posicion en el tablero esta vacia</li>
+                        <li>Realizar_movimiento(int fila, int columna, str jugador):</li>
+                        <li>Realiza movimientos si la posicion esta vacia</li>
+                        <li>ganador():</li>
+                        <li>Define las combinaciones ganadoras</li>
+                        <li>empate():</li>
+                        <li>Verifica si hay un empate (todas las posiciones estan ocupadas)</li>
+                    </ul>
+
+                    <li><strong>Clase Juego:</strong></li>
+                    <ul>
+                        <li>La clase juego inicializa la ventana del juego pra poder controlar el turno actual y genera los botones.</li>
+                        <li><strong>Metodos:</strong></li>
+                        <li>void init(str master):</li>
+                        <li>Inicializa la ventana del juego.</li>
+                        <li>crear_botones()</li>
+                        <li>Crea los botones para cada celda del Tablero</li>
+                        <li>jugador(int fila, int columna)</li>
+                        <li>Realiza un movimiento y si hhay in gnador o empate imprime sus respectivo mensaje.</li>
+                        <li>Reiniciar_juego():</li>
+                        <li>Reinicia el tablero y el turno</li>
+                    </ul>
                 
                 <h2>Interfaz</h2>
                 <img src="imagnes/Interfaz.png" alt="Descripción de la imagen" style="width: 200px; height: auto;">
@@ -71,5 +86,162 @@
     <div class="footer">
         &copy; 2024 3 en Línea. Todos los derechos reservados.
     </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación del Código del Juego "Tres en Raya"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+            overflow-x: auto;
+        }
+        code {
+            background: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Documentación del Código del Juego "Tres en Raya"</h1>
+<p>Este documento describe las clases y métodos utilizados en la implementación de un juego de "Tres en Raya" utilizando <code>tkinter</code> en Python.</p>
+
+<h2>Clases</h2>
+
+<h3>1. Clase <code>Jugador</code></h3>
+<p>La clase <code>Jugador</code> representa a un jugador en el juego.</p>
+
+<h4>Métodos</h4>
+<ul>
+    <li><strong><code>__init__(self, simbolo)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Inicializa un jugador con un símbolo específico (puede ser 'O' o 'X').</li>
+            <li><strong>Parámetros</strong>:
+                <ul>
+                    <li><code>simbolo</code>: Un carácter que representa el símbolo del jugador.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<h3>2. Clase <code>Tablero</code></h3>
+<p>La clase <code>Tablero</code> representa el tablero del juego, que es una cuadrícula de 3x3.</p>
+
+<h4>Métodos</h4>
+<ul>
+    <li><strong><code>__init__(self)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Inicializa un tablero de 3x3 con todos los espacios vacíos.</li>
+        </ul>
+    </li>
+    <li><strong><code>verificar(self, fila, columna)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Verifica si una posición en el tablero está vacía.</li>
+            <li><strong>Parámetros</strong>:
+                <ul>
+                    <li><code>fila</code>: La fila del tablero.</li>
+                    <li><code>columna</code>: La columna del tablero.</li>
+                </ul>
+            </li>
+            <li><strong>Retorno</strong>: <code>True</code> si la posición está vacía, <code>False</code> en caso contrario.</li>
+        </ul>
+    </li>
+    <li><strong><code>realizar_movimiento(self, fila, columna, jugador)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Realiza un movimiento en el tablero si la posición está vacía.</li>
+            <li><strong>Parámetros</strong>:
+                <ul>
+                    <li><code>fila</code>: La fila donde se quiere hacer el movimiento.</li>
+                    <li><code>columna</code>: La columna donde se quiere hacer el movimiento.</li>
+                    <li><code>jugador</code>: El objeto <code>Jugador</code> que realiza el movimiento.</li>
+                </ul>
+            </li>
+            <li><strong>Retorno</strong>: <code>True</code> si el movimiento se realizó exitosamente, <code>False</code> si la posición ya estaba ocupada.</li>
+        </ul>
+    </li>
+    <li><strong><code>ganador(self)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Verifica si algún jugador ha ganado.</li>
+            <li><strong>Retorno</strong>: Retorna el símbolo del jugador ganador ('O' o 'X'), o <code>None</code> si no hay ganador.</li>
+        </ul>
+    </li>
+    <li><strong><code>empate(self)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Verifica si se ha producido un empate (todas las posiciones están ocupadas).</li>
+            <li><strong>Retorno</strong>: <code>True</code> si hay empate, <code>False</code> en caso contrario.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3. Clase <code>Juego</code></h3>
+<p>La clase <code>Juego</code> representa la lógica del juego y la interfaz gráfica.</p>
+
+<h4>Métodos</h4>
+<ul>
+    <li><strong><code>__init__(self, master)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Inicializa la ventana del juego y establece los jugadores y el tablero.</li>
+            <li><strong>Parámetros</strong>:
+                <ul>
+                    <li><code>master</code>: La ventana principal de <code>tkinter</code>.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><strong><code>crear_botones(self)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Crea los botones para cada celda del tablero y los coloca en la interfaz gráfica.</li>
+        </ul>
+    </li>
+    <li><strong><code>jugar(self, fila, columna)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Lógica para realizar un movimiento cuando un jugador hace clic en un botón.</li>
+            <li><strong>Parámetros</strong>:
+                <ul>
+                    <li><code>fila</code>: La fila seleccionada por el jugador.</li>
+                    <li><code>columna</code>: La columna seleccionada por el jugador.</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><strong><code>reiniciar_juego(self)</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Reinicia el tablero y el turno de los jugadores, limpiando la interfaz gráfica.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2>Punto de Entrada</h2>
+<ul>
+    <li><strong><code>if __name__ == "__main__":</code></strong>
+        <ul>
+            <li><strong>Descripción</strong>: Este bloque crea la ventana principal y comienza el bucle de eventos de la interfaz gráfica para ejecutar el juego.</li>
+        </ul>
+    </li>
+</ul>
+
 </body>
 </html>
