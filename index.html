@@ -44,6 +44,8 @@
                     <li><strong>Clase Tablero:</strong></li>
                     <ul>
                         <li>La clase Tablero representa el tablero del juego, que es una cuadrícula de 3x3.</li>
+                        <li><strong>Atributos:</strong></li>
+                        <li>Tabler(list)</li>
                         <li><strong>Metodos:</strong></li>
                         <li>void init(str):</li>
                         <li>Genera un tablero de 3 x 3.</li>
@@ -60,12 +62,19 @@
                     <li><strong>Clase Juego:</strong></li>
                     <ul>
                         <li>La clase juego inicializa la ventana del juego pra poder controlar el turno actual y genera los botones.</li>
+                        <li><strong>Atributos:</strong></li>
+                        <li>Tabler(int list)</li>
+                        <li>Tabler(int)</li>
+                        <li>Jugador 1(str)</li>
+                        <li>Jugador2(str)</li>
+                        <li>Turno(int)</li>
+                        <li>Boton(int)</li>
                         <li><strong>Metodos:</strong></li>
                         <li>void init(str):</li>
                         <li>Inicializa la ventana del juego.</li>
                         <li>crear_botones()</li>
                         <li>Crea los botones para cada celda del Tablero</li>
-                        <li>jugador(int fila, int columna)</li>
+                        <li>jugar(int fila, int columna)</li>
                         <li>Realiza un movimiento y si hhay in gnador o empate imprime sus respectivo mensaje.</li>
                         <li>Reiniciar_juego():</li>
                         <li>Reinicia el tablero y el turno</li>
