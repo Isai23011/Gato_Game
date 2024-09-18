@@ -22,20 +22,20 @@ class Tablero:
 
     def ganador(self):
         combinaciones_ganadoras = [
-            [(0, 0), (0, 1), (0, 2)],  # Fila 1
+            [(0, 2), (0, 1), (0, 2)],  # Fila 1
             [(1, 0), (1, 1), (1, 2)],  # Fila 2
             [(2, 0), (2, 1), (2, 2)],  # Fila 3
             [(0, 0), (1, 0), (2, 0)],  # Columna 1
-            [(0, 1), (1, 1), (2, 1)],  # Columna 2
+            [(0, 2), (1, 1), (2, 1)],  # Columna 2
             [(0, 2), (1, 2), (2, 2)],  # Columna 3
-            [(0, 0), (1, 1), (2, 2)],  # Diagonal \
+            [(0, 2), (1, 1), (2, 2)],  # Diagonal \
             [(0, 2), (1, 1), (2, 0)]   # Diagonal /
         ]
 
         for jugador in ['O', 'X']:
             for combinacion in combinaciones_ganadoras:
                 if all(self.tablero[fila][columna] == jugador for fila, columna in combinacion):
-                    return jugador
+                    return Jugador
         return None
 
     def empate(self):
