@@ -33,25 +33,30 @@
             <div class="estructura-text">
                 <h3>Clases Principales:</h3>
                 <ul>
-                    <li><strong>Jugador:</strong> Representa a un jugador individual en el juego y tiene un atributo símbolo que indica si es 'X' u 'O'.</li>
-                    <li><strong>Tablero:</strong> Gestiona el estado del tablero de juego. Tiene un atributo tablero que es una matriz para representar las casillas. Ofrece métodos para:
+                    <li><strong>Jugador:</strong>Simbolo: Representa a un jugador individual en el juego y tiene un atributo símbolo que indica si es 'X' u 'O'.</li>
+                    <li><strong>Tablero:</strong> Tablero list: Gestiona el estado del tablero de juego. Tiene un atributo tablero que es una matriz para representar las casillas. Ofrece métodos para:
                         <ul>
-                            <li>Verificar si una casilla está vacía.</li>
-                            <li>Realizar un movimiento en el tablero.</li>
-                            <li>Determinar si hay un ganador.</li>
-                            <li>Determinar si se ha producido un empate.</li>
+                            <li>Verificar: Verifica si hay un ganador, un empate o que la casilla no este ocupada</li>
+                            <li>Realizar_un_movimiento: Realiza un movimiento si la posicion esta vacio</li>
+                            <li>Ganador: Define las combinaciones ganadoras </li>
+                            <li>empate: Verifica si todas las casillas estan ocupadas</li>
                         </ul>
                     </li>
-                    <li><strong>Juego:</strong> Es la clase principal que coordina el juego. Crea la interfaz gráfica utilizando Tkinter, instancia los objetos Tablero, Jugador1 y Jugador2, y maneja los turnos de los jugadores. Detecta cuando hay un ganador o un empate y muestra un mensaje.</li>
+                    <li><strong>Juego:</strong> Es la clase principal que coordina el juego. </li>
+                    <ul>
+                        <li>tablero: Crea la interfaz grafica de la clase tablero</li>
+                        <li>Jugador 1: Inicia su turno con el simbolo O</li>
+                        <li>Jugador 2: Inicia su turno con el simbolo X</li>
+                        <li>Turno: Controla el turno actual</li>
+                        <li>Boton: Genera los botones en el tablero</li>
+                        <li>init(): Metodo constructor</li>
+                        <li>Crear_botone(): Visualiza los simbolos</li>
+                        <li>Jugar(): Realiza los movimientos e imprime si hay un gandaor o un empate</li>
+                        <li>reiniciar_juego: Reinicia el juego despues de aver un ganador o un empate</li>
+                    </ul>
                 </ul>
-                <h3>Funcionamiento:</h3>
-                <ol>
-                    <li><strong>Inicialización:</strong> Al ejecutar el código, se crea una instancia de la clase Juego, lo que inicia la interfaz gráfica y prepara el tablero.</li>
-                    <li><strong>Jugadas:</strong> Los jugadores hacen clic en los botones de la interfaz para realizar sus movimientos.</li>
-                    <li><strong>Verificación:</strong> Después de cada movimiento, se verifica si hay un ganador o un empate.</li>
-                    <li><strong>Finalización:</strong> Cuando hay un ganador o un empate, se muestra un mensaje y se reinicia el juego.</li>
-                </ol>
-                <h3>Interfaz</h3>
+                
+                <h2>Interfaz</h2>
                 <img src="imagnes/Interfaz.png" alt="Descripción de la imagen" style="width: 200px; height: auto;">
             </div>
         </div>
